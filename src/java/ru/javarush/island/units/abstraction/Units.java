@@ -1,4 +1,4 @@
-package ru.javarush.island.units;
+package ru.javarush.island.units.abstraction;
 
 public abstract class Units {
 

@@ -1,6 +1,6 @@
 package ru.javarush.island;
 
-import ru.javarush.island.units.animals.Animal;
+import ru.javarush.island.units.abstraction.Animal;
 import ru.javarush.island.units.animals.predator.Bear;
 
 public class test {

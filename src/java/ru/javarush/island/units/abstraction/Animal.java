@@ -1,6 +1,4 @@
-package ru.javarush.island.units.animals;
-
-import ru.javarush.island.units.Units;
+package ru.javarush.island.units.abstraction;
 
 public abstract class Animal extends Units {
     int travelDistance;

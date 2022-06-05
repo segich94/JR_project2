@@ -1,4 +1,6 @@
-package ru.javarush.island.units.animals;
+package ru.javarush.island.units.abstraction;
+
+import ru.javarush.island.units.abstraction.Animal;
 
 public abstract class Predator extends Animal {
 

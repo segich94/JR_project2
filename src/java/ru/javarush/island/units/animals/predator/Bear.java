@@ -1,6 +1,6 @@
 package ru.javarush.island.units.animals.predator;
 
-import ru.javarush.island.units.animals.Predator;
+import ru.javarush.island.units.abstraction.Predator;
 
 public class Bear extends Predator {
     private static final int TRAVEL_DISTANCE = 2;

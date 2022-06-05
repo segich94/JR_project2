@@ -1,6 +1,4 @@
-package ru.javarush.island.units.plants;
-
-import ru.javarush.island.units.Units;
+package ru.javarush.island.units.abstraction;
 
 public abstract class Plant extends Units {
     int weight;
