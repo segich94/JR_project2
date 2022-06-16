@@ -4,7 +4,10 @@ import ru.javarush.island.units.abstraction.Plant;
 
 public class Grass extends Plant {
 
-    public Grass(int[][] position, int weight) {
-        super(position, weight);
+    private static double WEIGHT = 1.0;
+
+    public Grass(int positionX, int positionY) {
+        super(positionX, positionY);
+
     }
 }
