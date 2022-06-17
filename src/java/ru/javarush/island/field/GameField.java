@@ -1,12 +1,32 @@
 package ru.javarush.island.field;
 
-public class GameField {
-    private int height = 100;
-    private int width = 20;
-    private static final GameField INSTANCE = new GameField();
+import ru.javarush.island.settings.Settings;
 
-    private GameField() {
+import java.util.HashMap;
+import java.util.Map;
+
+public class GameField {
+    private static GameField GAME_FIELD = new GameField();
+
+    private Location [][] locations;
+
+    private GameField(){}
+
+    public static GameField getGameField(){
+        return GAME_FIELD;
     }
+
+    public void initMap(){
+        locations = new Location[Settings.islandWidth][Settings.islandHeight];
+        for (int i = 0; i < Settings.islandHeight; i++) {
+            for (int j = 0; j < Settings.islandWidth; j++) {
+                locations[i][j] = new Location(i,j);
+
+            }
+        }
+
+    }
+
 
 
 }

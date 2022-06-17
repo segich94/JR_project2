@@ -9,8 +9,12 @@ import java.util.List;
 
 public class Settings {
 
-    List<Class> unitsClass = new ArrayList<>();
-    int[][] chanceToEat = {
+
+
+    public static int islandWidth = 20;
+    public static int islandHeight = 100;
+    public static List<Class> unitsClass = new ArrayList<>();
+    public static int[][] chanceToEat = {
             {0,0,0,0,0,10,15,60,80,60,70,15,10,40,0,0},
             {0,0,15,0,0,0,0,20,40,0,0,0,0,10,0,0},
             {0,0,0,0,0,0,0,70,90,0,0,0,0,60,40,0},
@@ -28,7 +32,7 @@ public class Settings {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100}
     };
 
-    {
+    static {
         unitsClass.add(Wolf.class);
         unitsClass.add(Boa.class);
         unitsClass.add(Fox.class);
@@ -46,4 +50,5 @@ public class Settings {
         unitsClass.add(Caterpillar.class);
         unitsClass.add(Grass.class);
     }
+
 }
