@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GameField {
-    private static GameField GAME_FIELD = new GameField();
+    private static final GameField GAME_FIELD = new GameField();
 
     private Location [][] locations;
 
@@ -24,9 +24,11 @@ public class GameField {
 
             }
         }
-
     }
 
+    public Location getLocation(int x, int y){
+        return locations[x][y];
+    }
 
 
 }

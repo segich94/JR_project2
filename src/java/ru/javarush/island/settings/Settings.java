@@ -1,5 +1,6 @@
 package ru.javarush.island.settings;
 
+import ru.javarush.island.units.abstraction.Units;
 import ru.javarush.island.units.animals.herbivore.*;
 import ru.javarush.island.units.animals.predator.*;
 import ru.javarush.island.units.plants.Grass;
@@ -13,7 +14,9 @@ public class Settings {
 
     public static int islandWidth = 20;
     public static int islandHeight = 100;
-    public static List<Class> unitsClass = new ArrayList<>();
+    public static List<Class<? extends Units>> unitsClass = new ArrayList<>();
+    public static List<Units> unitsList = new ArrayList<>();
+
     public static int[][] chanceToEat = {
             {0,0,0,0,0,10,15,60,80,60,70,15,10,40,0,0},
             {0,0,15,0,0,0,0,20,40,0,0,0,0,10,0,0},
@@ -33,6 +36,23 @@ public class Settings {
     };
 
     static {
+        unitsList.add(new Wolf(0,0));
+        unitsList.add(new Boa(0,0));
+        unitsList.add(new Fox(0,0));
+        unitsList.add(new Bear(0,0));
+        unitsList.add(new Eagle(0,0));
+        unitsList.add(new Horse(0,0));
+        unitsList.add(new Deer(0,0));
+        unitsList.add(new Rabbit(0,0));
+        unitsList.add(new Mouse(0,0));
+        unitsList.add(new Goat(0,0));
+        unitsList.add(new Sheep(0,0));
+        unitsList.add(new Hog(0,0));
+        unitsList.add(new Buffalo(0,0));
+        unitsList.add(new Duck(0,0));
+        unitsList.add(new Caterpillar(0,0));
+        unitsList.add(new Grass(0,0));
+
         unitsClass.add(Wolf.class);
         unitsClass.add(Boa.class);
         unitsClass.add(Fox.class);
