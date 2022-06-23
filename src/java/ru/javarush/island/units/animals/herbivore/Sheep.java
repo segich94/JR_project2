@@ -18,5 +18,10 @@ public class Sheep extends Herbivore {
         this.maxCountOnLocation = MAX_COUNT_ON_LOCATION;
         this.stomachVolume = STOMACH_VOLUME;
         this.travelDistance = TRAVEL_DISTANCE;
+        this.saturation = stomachVolume/2.0;
+    }
+
+    public Sheep createNewOne(int positionX, int positionY) {
+        return new Sheep(positionX, positionY);
     }
 }

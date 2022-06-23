@@ -18,5 +18,12 @@ public class Deer extends Herbivore {
         this.maxCountOnLocation = MAX_COUNT_ON_LOCATION;
         this.stomachVolume = STOMACH_VOLUME;
         this.travelDistance = TRAVEL_DISTANCE;
+        this.saturation = stomachVolume/2.0;
     }
+
+    @Override
+    public Deer createNewOne(int positionX, int positionY) {
+        return new Deer(positionX, positionY);
+    }
+
 }

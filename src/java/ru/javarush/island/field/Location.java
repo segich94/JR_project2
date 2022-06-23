@@ -15,6 +15,7 @@ public class Location {
     private int xCoordinate;
     private int yCoordinate;
     private List<Units> units;
+    public boolean phaseEnd = false;
 
     public Location(int xCoordinate, int yCoordinate) {
         this.xCoordinate = xCoordinate;
@@ -22,15 +23,28 @@ public class Location {
         units = new ArrayList<>();
     }
 
-    public List<Units> initLocation(){
-        return null;
+    public void initLocation(){
+        generateGrass();
+        generateUnit();
     }
 
     public void addUnitInLocation(Units unit){
         this.units.add(unit);
     }
 
-    public void generateUnit(int xCoordinate, int yCoordinate){
+    public List<Units> getUnits() {
+        return units;
+    }
+
+    public int getxCoordinate() {
+        return xCoordinate;
+    }
+
+    public int getyCoordinate() {
+        return yCoordinate;
+    }
+
+    public void generateUnit(){
         for (Units unit:Settings.unitsList){
             int maxCount = unit.maxCountOnLocation;
             int random = ThreadLocalRandom.current().nextInt(0,maxCount + 1);
@@ -38,15 +52,22 @@ public class Location {
             for (int i = 0; i < random; i++) {
                 unit.createNewOne(xCoordinate, yCoordinate);
             }
-
         }
     }
 
-    public void regenerateGrass(){
+    public void generateGrass(){
         int maxCount = new Grass(xCoordinate,yCoordinate).maxCountOnLocation;
         int random = ThreadLocalRandom.current().nextInt(0,maxCount);
-        for (int i = 0; i < maxCount; i++) {
-            new Grass(xCoordinate,yCoordinate);
+
+        if (!this.getUnits().isEmpty()){
+            int currentCount = (int) getUnits().stream()
+                    .filter(o -> o.getClass().getSimpleName().equals(Grass.class.getSimpleName()))
+                    .count();
+            random = currentCount + random > maxCount ? maxCount - currentCount : random;
+        }
+
+            for (int i = 0; i < random; i++) {
+                new Grass(xCoordinate,yCoordinate);
         }
     }
 
@@ -57,4 +78,5 @@ public class Location {
 
         return unit.maxCountOnLocation-count == 0;
     }
+
 }

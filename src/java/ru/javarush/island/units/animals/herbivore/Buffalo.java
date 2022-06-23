@@ -19,6 +19,7 @@ public class Buffalo extends Herbivore {
         this.weight = WEIGHT;
         this.stomachVolume = STOMACH_VOLUME;
         this.travelDistance = TRAVEL_DISTANCE;
+        this.saturation = stomachVolume/2.0;
     }
 
     @Override

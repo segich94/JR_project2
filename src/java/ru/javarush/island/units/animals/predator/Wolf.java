@@ -21,5 +21,10 @@ public class Wolf extends Predator {
         this.maxCountOnLocation = MAX_COUNT_ON_LOCATION;
         this.stomachVolume = STOMACH_VOLUME;
         this.travelDistance = TRAVEL_DISTANCE;
+        this.saturation = stomachVolume/2.0;
+    }
+
+    public Wolf createNewOne(int positionX, int positionY) {
+        return new Wolf(positionX, positionY);
     }
 }

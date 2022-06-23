@@ -18,5 +18,10 @@ public class Fox extends Predator {
         this.maxCountOnLocation = MAX_COUNT_ON_LOCATION;
         this.stomachVolume = STOMACH_VOLUME;
         this.travelDistance = TRAVEL_DISTANCE;
+        this.saturation = stomachVolume/2.0;
+    }
+
+    public Fox createNewOne(int positionX, int positionY) {
+        return new Fox(positionX, positionY);
     }
 }
