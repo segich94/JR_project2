@@ -5,9 +5,12 @@ import ru.javarush.island.units.animals.herbivore.*;
 import ru.javarush.island.units.animals.predator.*;
 import ru.javarush.island.units.plants.Grass;
 
+import java.lang.reflect.Field;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Settings {
 
@@ -51,4 +54,32 @@ public class Settings {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100}
     };
 
+
+    public void changeAnimalSettings(Units unit, String nameField, double newValue) throws IllegalAccessException {
+        Field field = null;
+        try {
+            field = unit.getClass().getDeclaredField(nameField);
+            field.setAccessible(true);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        if (field != null)
+            try {
+                field.setDouble(unit.getClass(),newValue);
+            }catch (IllegalArgumentException e){
+                field.setInt(unit.getClass(),(int) newValue);
+            }
+    }
+    public void changeEatChanceSetting(Units unit, Units prey, int newValue){
+        List<String> stringUnits = unitsList.stream().map(o -> o.getClass().getSimpleName()).toList();
+        chanceToEat[stringUnits.indexOf(unit.getClass().getSimpleName())][stringUnits.indexOf(prey.getClass().getSimpleName())] = newValue;
+
+    }
+
+
+
+
+
 }
+
+
