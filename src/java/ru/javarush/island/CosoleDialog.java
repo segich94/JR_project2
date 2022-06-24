@@ -76,7 +76,6 @@ public class CosoleDialog {
             }
         }
 
-
     }
 
     private Units chooseUnits(int index){

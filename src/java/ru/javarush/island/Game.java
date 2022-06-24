@@ -11,12 +11,13 @@ public class Game {
 
 
     public static void main(String[] args) {
-        gameField.initMap();
-        gameField.initGameMap();
-        new Game().start();
+        new CosoleDialog().startDialog();
+
     }
 
     public void start(){
+        gameField.initMap();
+        gameField.initGameMap();
         Phaser phaser = new Phaser();
         new StatisticProcessor(phaser).start();
         GameField.getGameField().getListOfLocation().forEach(location -> new LifeCycleProcessor(phaser,location).start());
