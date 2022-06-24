@@ -1,10 +1,11 @@
 package ru.javarush.island.units.plants;
 
-import lombok.Getter;
-import lombok.Setter;
+
+
 import ru.javarush.island.units.abstraction.Plant;
-@Getter
-@Setter
+import ru.javarush.island.units.abstraction.Units;
+
+
 public class Grass extends Plant {
 
     private static double WEIGHT = 1.0;
@@ -15,5 +16,10 @@ public class Grass extends Plant {
         this.maxCountOnLocation = MAX_COUNT_ON_LOCATION;
         this.weight = WEIGHT;
 
+    }
+
+    @Override
+    public Grass createNewOne(int positionX, int positionY) {
+        return new Grass(positionX, positionY);
     }
 }

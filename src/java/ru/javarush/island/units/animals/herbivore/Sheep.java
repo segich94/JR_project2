@@ -1,10 +1,10 @@
 package ru.javarush.island.units.animals.herbivore;
 
-import lombok.Getter;
-import lombok.Setter;
+
+
 import ru.javarush.island.units.abstraction.Herbivore;
-@Getter
-@Setter
+
+
 public class Sheep extends Herbivore {
 
     private static int TRAVEL_DISTANCE = 2;

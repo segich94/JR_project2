@@ -1,12 +1,10 @@
 package ru.javarush.island.units.animals.herbivore;
 
-import lombok.Getter;
-import lombok.Setter;
+
+
 import ru.javarush.island.units.abstraction.Herbivore;
 import ru.javarush.island.units.abstraction.Units;
 
-@Getter
-@Setter
 public class Caterpillar extends Herbivore {
     private static int TRAVEL_DISTANCE = 0;
     private static double STOMACH_VOLUME = 0.0;

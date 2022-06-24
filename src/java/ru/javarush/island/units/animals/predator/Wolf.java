@@ -1,12 +1,12 @@
 package ru.javarush.island.units.animals.predator;
 
-import lombok.Getter;
-import lombok.Setter;
+
+
 import ru.javarush.island.units.abstraction.Predator;
 
 
-@Getter
-@Setter
+
+
 public class Wolf extends Predator {
 
     private static int TRAVEL_DISTANCE = 3;
@@ -23,6 +23,7 @@ public class Wolf extends Predator {
         this.travelDistance = TRAVEL_DISTANCE;
         this.saturation = stomachVolume/2.0;
     }
+
 
     public Wolf createNewOne(int positionX, int positionY) {
         return new Wolf(positionX, positionY);

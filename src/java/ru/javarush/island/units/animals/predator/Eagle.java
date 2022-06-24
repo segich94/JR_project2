@@ -1,10 +1,10 @@
 package ru.javarush.island.units.animals.predator;
 
-import lombok.Getter;
-import lombok.Setter;
+
+
 import ru.javarush.island.units.abstraction.Predator;
-@Getter
-@Setter
+
+
 public class Eagle extends Predator {
     private static int TRAVEL_DISTANCE = 3;
     private static double STOMACH_VOLUME = 1.0;

@@ -9,22 +9,24 @@ import java.util.Map;
 
 public class GameField {
     private static final GameField GAME_FIELD = new GameField();
-
     private Location [][] locations;
     private List<Location> listOfLocation = new ArrayList<>();
+    private int islandWidth = Settings.islandWidth;
+    private int islandHeight = Settings.islandHeight;
 
-    private GameField(){}
+    private GameField(){
+    }
 
     public static GameField getGameField(){
         return GAME_FIELD;
     }
 
     public void initMap(){
-        locations = new Location[Settings.islandWidth][Settings.islandHeight];
-        for (int i = 0; i < Settings.islandHeight; i++) {
-            for (int j = 0; j < Settings.islandWidth; j++) {
-                locations[i][j] = new Location(i,j);
-                listOfLocation.add(locations[i][j]);
+        locations = new Location[islandWidth][islandHeight];
+        for (int i = 0; i < islandHeight; i++) {
+            for (int j = 0; j < islandWidth; j++) {
+                locations[j][i] = new Location(j,i);
+                listOfLocation.add(locations[j][i]);
             }
         }
     }

@@ -1,12 +1,8 @@
 package ru.javarush.island.units.animals.herbivore;
 
-import lombok.Getter;
-import lombok.Setter;
 import ru.javarush.island.units.abstraction.Herbivore;
 import ru.javarush.island.units.abstraction.Units;
 
-@Getter
-@Setter
 public class Buffalo extends Herbivore {
     private static int TRAVEL_DISTANCE = 3;
     private static double STOMACH_VOLUME = 100.0;

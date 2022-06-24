@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Location {
@@ -20,7 +21,7 @@ public class Location {
     public Location(int xCoordinate, int yCoordinate) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
-        units = new ArrayList<>();
+        units = new CopyOnWriteArrayList<>();
     }
 
     public void initLocation(){
@@ -32,7 +33,7 @@ public class Location {
         this.units.add(unit);
     }
 
-    public List<Units> getUnits() {
+    public synchronized List<Units> getUnits() {
         return units;
     }
 
@@ -72,6 +73,7 @@ public class Location {
     }
 
     public boolean isMaxCountOfUnit(Units unit){
+
          int count = (int) units.stream()
                 .filter(o -> o.getClass().isInstance(unit))
                 .count();

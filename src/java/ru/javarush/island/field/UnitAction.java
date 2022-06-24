@@ -3,10 +3,8 @@ package ru.javarush.island.field;
 import ru.javarush.island.settings.Settings;
 import ru.javarush.island.units.abstraction.Animal;
 import ru.javarush.island.units.abstraction.Units;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
@@ -41,7 +39,7 @@ public class UnitAction {
     }
 
 
-    public void eat(Animal animal, Location location){
+    public synchronized void eat(Animal animal, Location location){
         if (animal.isDead)
             return;
 
@@ -69,6 +67,7 @@ public class UnitAction {
 
         if (availableEat.isEmpty()){
             weakening(animal,location);
+            return;
         }
 
         int indexOfAvailableEat = ThreadLocalRandom.current().nextInt(availableEat.size());
@@ -78,6 +77,8 @@ public class UnitAction {
             Units prey = availableEat.get(indexOfAvailableEat);
             animal.saturation = Math.min(animal.saturation + prey.weight, animal.stomachVolume);
             death(prey,location);
+
+            //System.out.println("Поток -"+ Thread.currentThread()+ "----" + prey.getClass().getSimpleName() + " скушан " + animal.getClass().getSimpleName());
         }
     }
 
@@ -96,6 +97,8 @@ public class UnitAction {
                 partners.get(randomPartner).isMultiplied = true;
                 animal.isMultiplied = true;
                 animal.createNewOne(location.getxCoordinate(), location.getyCoordinate());
+
+                //System.out.println("Поток -"+ Thread.currentThread()+ "----" + partners.get(randomPartner).getClass().getSimpleName() + " спарился с " + animal.getClass().getSimpleName());
             }
         }
     }
@@ -107,8 +110,8 @@ public class UnitAction {
     }
 
     public void death(Units units, Location location){
-        location.getUnits().remove(units);
         units.isDead = true;
+        location.getUnits().remove(units);
     }
 
 
